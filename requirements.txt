@@ -1,1 +1,1 @@
-streamlit, matplotlib, and numpy
+streamlit, matplotlib numpy
