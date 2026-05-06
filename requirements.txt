@@ -1,1 +1,4 @@
-stremlit matplotlib numpy 
+streamlit
+matplotlib
+numpy
+
