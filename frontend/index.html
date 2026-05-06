@@ -25,10 +25,10 @@
 </head>
 <body>
 
-<h1>⚡ Katalyst Agent</h1>
+<h1>⚡ Katalyst Stability Agent</h1>
 
 <input id="query" placeholder="Enter your query"><br>
-<input id="noise" placeholder="Stochastic noise (number)" value="0"><br>
+<input id="noise" type="number" value="0" placeholder="Noise"><br>
 
 <button onclick="send()">Run Agent</button>
 
@@ -53,9 +53,8 @@ async function send() {
     document.getElementById("output").innerHTML = `
         <b>Response:</b> ${data.response}<br>
         <b>Ω_G:</b> ${data.omega_g}<br>
-        <b>Confidence:</b> ${data.confidence}<br>
         <b>Status:</b> ${data.status}<br>
-        <b>Valid:</b> ${data.valid}
+        <b>Verified:</b> ${data.verified ? "YES" : "NO"}
     `;
 }
 </script>
