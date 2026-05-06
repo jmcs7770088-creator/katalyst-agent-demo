@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Katalyst Agent</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+        }
+        .box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>⚡ Katalyst Agent</h1>
+
+<input id="query" placeholder="Enter your query"><br>
+<input id="noise" placeholder="Stochastic noise (number)" value="0"><br>
+
+<button onclick="send()">Run Agent</button>
+
+<div class="box" id="output"></div>
+
+<script>
+async function send() {
+    let query = document.getElementById("query").value;
+    let noise = parseFloat(document.getElementById("noise").value);
+
+    let res = await fetch("http://127.0.0.1:8000/process", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            query: query,
+            stochastic_noise: noise
+        })
+    });
+
+    let data = await res.json();
+
+    document.getElementById("output").innerHTML = `
+        <b>Response:</b> ${data.response}<br>
+        <b>Ω_G:</b> ${data.omega_g}<br>
+        <b>Confidence:</b> ${data.confidence}<br>
+        <b>Status:</b> ${data.status}<br>
+        <b>Valid:</b> ${data.valid}
+    `;
+}
+</script>
+
+</body>
+</html>
