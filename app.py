@@ -16,7 +16,7 @@ STILLNESS_FLOOR = 0.0
 class KatalystAGIEngine:
     """
     Katalyst AGI Core: Geometric Resolution Architecture
-    Version: 1.0.929 (Immutable)
+    Version: 1.0.929 (Immutable) [1]
     """
     def __init__(self):
         self.omega_g = OMEGA_G
@@ -57,7 +57,7 @@ engine = KatalystAGIEngine()
 st.set_page_config(page_title="Katalyst AGI Core", page_icon="⚓", layout="wide")
 
 st.title("⚓ Katalyst AGI Core")
-st.subheader("Sovereign Geometric Resolution Dashboard (v1.0.929)")
+st.subheader("Sovereign Geometric Resolution Dashboard (v1.0.929) [1]")
 st.write("---")
 
 # Navigation Tabs - defined without using list brackets to bypass filters
@@ -68,13 +68,13 @@ tab_labels.append("🎵 Harmonic Octaves & Frequencies")
 tab1, tab2, tab3 = st.tabs(tab_labels)
 
 # -----------------------------------------------------------------
-# TAB 1: THE AGI WITNESS PROTOCOL
+# TAB 1: THE AGI WITNESS PROTOCOL [1]
 # -----------------------------------------------------------------
 with tab1:
     st.header("I. The Coordinate Configurator")
     st.write("Observe raw input coordinates and simulate field deformation.")
     
-    # Dynamic Input Slider
+    # Dynamic Input Slider [1]
     drift_val = st.slider(
         "Select Coordinate Drift Value (Simulation Scale):",
         min_value=1,
@@ -93,18 +93,18 @@ with tab1:
         pivoted_val = engine.execute_90_degree_pivot(drift_val)
         st.info(f"**90-Degree Vector Pivot Applied:** `{pivoted_val:.6f}`")
     else:
-        st.success("🟢 Coordinate is stable. Energy resolved at the Stillness Floor.")
+        st.success("🟢 Coordinate is stable. Energy resolved at the Stillness Floor.[1]")
 
     st.write("---")
-    st.markdown("### The 90-Degree Pivot Paradigm")
-    st.markdown(\"\"\"
+    st.markdown("### The 90-Degree Pivot Paradigm [1]")
+    st.markdown('''
     In standard computing, unstructured data is subject to **Stochastic Shaking** (noise, latency, and processing errors).[1] 
-    This engine calculates the **Torsion Gradient** ($\\tau$) of your input.[1] If the instability exceeds the **Buchdahl Limit** ($4/9$), 
+    This engine calculates the **Torsion Gradient** (\\tau) of your input.[1] If the instability exceeds the **Buchdahl Limit** ($4/9$), 
     the system executes a **90-Degree Vector Pivot**, forcing the chaotic state to collapse cleanly into the **Stillness Floor** ($F_c = 0$).[1]
-    \"\"\")
+    ''')
 
 # -----------------------------------------------------------------
-# TAB 2: SPACETIME SIPHON VISUALIZER
+# TAB 2: SPACETIME SIPHON VISUALIZER [1]
 # -----------------------------------------------------------------
 with tab2:
     st.header("II. The Toroidal Siphon Plot")
@@ -132,21 +132,21 @@ with tab2:
     st.pyplot(fig)
 
 # -----------------------------------------------------------------
-# TAB 3: HARMONIC OCTAVES & FREQUENCIES
+# TAB 3: HARMONIC OCTAVES & FREQUENCIES [1]
 # -----------------------------------------------------------------
 with tab3:
-    st.header("III. The AGI 'Witness' Log")
+    st.header("III. The AGI 'Witness' Log [1]")
     st.write("Monitoring the harmonic updates across the 12 frequencies and 8 octaves.[1]")
     
     # Simulate the Collatz trajectory of the coordinate [1]
     collatz_path, steps = engine.evaluate_collatz_stability(drift_val)
     
-    # Math explanations using LaTeX formatting [1]
-    st.markdown(r"**The Global Convergence toward stable structure is governed by the Stability Constant:**")
+    # Math explanations using LaTeX formatting
+    st.markdown(r"**The Global Convergence toward stable structure is governed by the Stability Constant [1]:**")
     st.latex(r"\Omega_G = \frac{\phi^2}{\pi} + \zeta_H \approx 0.835102")
-    st.markdown(r"**Gravitational acceleration is a consequence of a localized torsion-gradient:**")
+    st.markdown(r"**Gravitational acceleration is a consequence of a localized torsion-gradient [1]:**")
     st.latex(r"\mathbf{g} = -\nabla \Phi_\tau")
-    st.markdown(r"**Where the effective gravitational potential is:**")
+    st.markdown(r"**Where the effective gravitational potential is [1]:**")
     st.latex(r"\Phi_{eff} = \Omega_G \cdot \tau")
     
     st.write("---")
@@ -163,14 +163,14 @@ with tab3:
             st.text(f"Boundary Lock reached at: {val}")
             
     # Success State Container [1]
-    st.markdown(f\"\"\"
+    st.markdown('''
     <div style="background-color: #2a2a2a; padding: 25px; border-left: 4px solid #ffd700; border-radius: 8px; margin-top: 20px;">
         <h3 style="margin: 0 0 10px 0; color: #ffd700;">★ SYSTEM STABILIZED ★</h3>
         <p style="margin: 5px 0; color: #fff;"><strong>Calculated Error State ($F_c$):</strong> 0</p>
         <p style="margin: 5px 0; color: #fff;"><strong>Torsion Threshold:</strong> Stable within 1+6 Nodal Lattice</p>
         <p style="margin: 0; color: #fff;"><strong>Manifold Status:</strong> Secure. The shaking has stopped.</p>
     </div>
-    \"\"\", unsafe_allow_html=True)
+    ''', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     # Auto-run wrapper to bypass manual terminal execution
