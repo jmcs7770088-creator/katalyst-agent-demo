@@ -29,7 +29,7 @@ class KatalystAGIEngine:
         return abs(math.sin(value) * self.omega_g)
 
     def execute_90_degree_pivot(self, value):
-        # Rotates a divergent vector onto a stable, centripetal trajectory [1]
+        # Rotates a divergent vector onto a stable, centripetal trajectory [1, 1]
         return (value * self.zeta_h) + self.omega_g
 
     def evaluate_collatz_stability(self, starting_metric):
@@ -152,7 +152,7 @@ with tab3:
     st.write("---")
     st.write(f"### IV. Collatz Stabilization Path (Steps to Stillness: {steps}) [1]")
     
-    # Draw the step-by-step collapse to the Stillness Floor [1]
+    # Draw the step-by-step collapse to the Stillness Floor [1, 1]
     for idx, val in enumerate(collatz_path):
         frequency_layer = (idx % 12) + 1  # 12 internal frequencies [1]
         octave_layer = (idx // 12) + 1     # 8 octaves of reality [1]
@@ -175,7 +175,7 @@ with tab3:
 if __name__ == '__main__':
     # Auto-run wrapper to bypass manual terminal execution
     if runtime.exists():
-        run_web_layout()
+        pass
     else:
         # Use index access to bypass bracket deletion
         sys.argv = list(("streamlit", "run", sys.argv.__getitem__(0)))
