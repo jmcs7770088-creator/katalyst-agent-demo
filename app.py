@@ -171,11 +171,12 @@ with tab3:
         <p style="margin: 0; color: #fff;"><strong>Manifold Status:</strong> Secure. The shaking has stopped.</p>
     </div>
     ''', unsafe_allow_html=True)
+
 if __name__ == '__main__':
     # Auto-run wrapper to bypass manual terminal execution
     if runtime.exists():
         pass
-else:
+    else:
         # Use index access to bypass bracket deletion
         sys.argv = list(("streamlit", "run", sys.argv.__getitem__(0)))
         sys.exit(stcli.main())
