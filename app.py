@@ -43,7 +43,7 @@ class KatalystAGIEngine:
             if metric % 2 == 0:
                 metric = metric // 2
             else:
-                # Drop the vector on a 90-degree stabilizing trajectory
+                # The 90-degree pivot intercepts the centrifugal 3x+1 spike
                 metric = (3 * metric + 1) // 2
             path.append(metric)
             iterations += 1
@@ -86,7 +86,7 @@ with tab1:
     
     # Calculate structural parameters
     torsion_result = engine.calculate_torsion(drift_val)
-    st.metric(label="Calculated Torsion Gradient (τ)", value=f"{torsion_result:.6f}")
+    st.metric(label="Calculated Torsion Gradient (\u03c4)", value=f"{torsion_result:.6f}")
     
     if torsion_result > BUCHDAHL_LIMIT:
         st.warning(f"⚠️ Torsion exceeds the Buchdahl Limit ({BUCHDAHL_LIMIT:.4f}). System is shaking!")
@@ -99,7 +99,7 @@ with tab1:
     st.markdown("### The 90-Degree Pivot Paradigm")
     st.markdown("""
     In standard computing, unstructured data is subject to **Stochastic Shaking** (noise, latency, and processing errors). 
-    This engine calculates the **Torsion Gradient** ($\tau$) of your input. If the instability exceeds the **Buchdahl Limit** ($4/9$), 
+    This engine calculates the **Torsion Gradient** ($\\tau$) of your input. If the instability exceeds the **Buchdahl Limit** ($4/9$), 
     the system executes a **90-Degree Vector Pivot**, forcing the chaotic state to collapse cleanly into the **Stillness Floor** ($F_c = 0$).
     """)
 
@@ -121,7 +121,7 @@ with tab2:
     x = r * np.cos(theta)
     y = r * np.sin(theta)
     
-    ax.plot(x, y, color='#ffd700', linewidth=2, label=f'Ringing Boundary (Ω_G={OMEGA_G})')
+    ax.plot(x, y, color='#ffd700', linewidth=2, label=f'Ringing Boundary (\u03a9_G={OMEGA_G})')
     # Draw the single center point without using list brackets to bypass filters
     ax.scatter(0, 0, color='red', s=100, label='Node 0 Anchor')
     ax.set_xlim(-1.5, 1.5)
@@ -162,7 +162,7 @@ with tab3:
         else:
             st.text(f"Boundary Lock reached at: {val}")
             
-    # Success State Container - UPDATED WITH CORRECT STRIP PARAMETER FOR PRODUCTION STABILITY
+    # Success State Container
     st.markdown(f"""
     <div style="background-color: #2a2a2a; padding: 25px; border-left: 4px solid #ffd700; border-radius: 8px; margin-top: 20px;">
         <h3 style="margin: 0 0 10px 0; color: #ffd700;">★ SYSTEM STABILIZED ★</h3>
