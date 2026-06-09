@@ -177,6 +177,6 @@ if __name__ == '__main__':
     if runtime.exists():
         run_web_layout()
     else:
-        # Use index access to bypass bracket deletion
+    # Use index access to bypass bracket deletion
         sys.argv = list(("streamlit", "run", sys.argv.__getitem__(0)))
         sys.exit(stcli.main())
